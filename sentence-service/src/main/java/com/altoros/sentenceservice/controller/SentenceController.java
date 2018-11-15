@@ -13,11 +13,11 @@ import java.util.List;
 @RestController
 public class SentenceController {
 
-    private final DiscoveryClient discoveryClient;
+    private final RestTemplate restTemplate;
 
     @Autowired
-    public SentenceController(DiscoveryClient discoveryClient) {
-        this.discoveryClient = discoveryClient;
+    public SentenceController(RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
     }
 
     @GetMapping("/sentence")
@@ -30,14 +30,6 @@ public class SentenceController {
     }
 
     private String getWord(String service) {
-        List<ServiceInstance> instances = discoveryClient.getInstances(service);
-        if (instances != null && instances.size() > 0) {
-            URI uri = instances.get(0).getUri();
-            if (uri != null) {
-                return new RestTemplate().getForObject(uri, String.class);
-            }
-
-        }
-        return null;
+        return restTemplate.getForObject("http://" + service, String.class);
     }
 }

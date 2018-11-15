@@ -2,6 +2,9 @@
 .mvn
 mvnw
 mvnw.cmd
+eureka-server-primary.jar
+eureka-server-secondary.jar
+eureka-server-tertiary.jar
 
 ### STS ###
 .apt_generated
