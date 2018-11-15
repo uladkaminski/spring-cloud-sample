@@ -26,8 +26,6 @@ public class SentenceController {
                 + getWord("verb-service") + " "
                 + getWord("article-service") + " "
                 + getWord("adjective-service") + " "
-                + getWord("noun-service")
-                + " and "
                 + getWord("noun-service") + ".";
     }
 
