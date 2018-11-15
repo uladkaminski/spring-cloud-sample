@@ -1,6 +1,7 @@
 package com.altoros.sentenceservice.controller;
 
 import com.altoros.sentenceservice.client.NounClient;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,7 +28,12 @@ public class SentenceController {
                 + nounClient.getWord() + ".";
     }
 
-    private String getWord(String service) {
+    public String defaultWord(String service){
+        return service;
+    }
+    @HystrixCommand(fallbackMethod = "defaultWord")
+    String getWord(String service) {
         return restTemplate.getForObject("http://" + service, String.class);
     }
+
 }

@@ -8,4 +8,5 @@ public interface NounClient {
 
     @GetMapping
     String getWord();
+
 }
