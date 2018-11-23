@@ -1,0 +1,9 @@
+---
+applications:
+- name: pcf-demo-uk
+  memory: 1gb
+  instances: 1
+  path: build/libs/pcf-demo-0.0.1-SNAPSHOT.jar
+  buildpack: java_buildpack
+  services:
+  - mysql
