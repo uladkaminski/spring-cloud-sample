@@ -1,0 +1,11 @@
+applications:
+- name: config-client
+  random-route: true
+  memory: 650mb
+  instances: 1
+  path: target/lucky-word-0.0.1-SNAPSHOT.jar
+  buildpack: java_buildpack
+  services:
+  - configserver
+  env:
+    SPRING_PROFILES_ACTIVE: dev

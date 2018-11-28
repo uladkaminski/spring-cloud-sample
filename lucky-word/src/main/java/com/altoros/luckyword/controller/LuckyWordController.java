@@ -1,0 +1,19 @@
+package com.altoros.luckyword.controller;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RefreshScope
+public class LuckyWordController {
+
+    @Value("${word-config.lucky-world: default}")
+    private String luckyWord;
+
+    @GetMapping("lucky-world")
+    public String showLuckyWorld() {
+        return "Lucky word is " + luckyWord;
+    }
+}
