@@ -1,12 +1,13 @@
 applications:
-- name: lucky-word
+- name: lw-comsumer
   random-route: true
   memory: 650mb
-  instances: 2
-  path: target/lucky-word-0.0.1-SNAPSHOT.jar
+  instances: 1
+  path: build/libs/lw-consumer-0.0.1-SNAPSHOT.jar
   buildpack: java_buildpack
   services:
   - configserver
   - serviceregistry
+  - circutbreaker
   env:
-    SPRING_PROFILES_ACTIVE: dep
+    JAVA_OPTS: -Xmx512M -Xms256M

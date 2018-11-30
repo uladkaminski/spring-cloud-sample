@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RefreshScope
 public class LuckyWorldController {
 
-    @Value("${word-config.lucky-world}")
+    @Value("${word-config.lucky-world: default}")
     private String luckyWord;
 
     @GetMapping("lucky-world")

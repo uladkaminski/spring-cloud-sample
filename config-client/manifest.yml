@@ -6,4 +6,6 @@ applications:
   path: target/client-config-0.0.1-SNAPSHOT.jar
   buildpack: java_buildpack
   services:
-  - config-server
+  - configserver
+  env:
+    SPRING_PROFILES_ACTIVE: default

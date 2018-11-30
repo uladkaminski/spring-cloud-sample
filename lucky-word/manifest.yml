@@ -10,3 +10,4 @@ applications:
   - serviceregistry
   env:
     SPRING_PROFILES_ACTIVE: dep
+    JAVA_OPTS: -Xmx600M -Xms500M
